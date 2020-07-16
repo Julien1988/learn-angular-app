@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { AppareilService } from './services/appareil.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import { Subscription } from 'rxjs/Rx';
