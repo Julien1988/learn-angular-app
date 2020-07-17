@@ -13,7 +13,7 @@ export class NewUserComponent implements OnInit {
   userForm: FormGroup;
 
   constructor(
-    private fromBuilder: FormBuilder,
+    private formBuilder: FormBuilder,
     private userService: UserService,
     private router: Router
   ) {}
@@ -23,12 +23,12 @@ export class NewUserComponent implements OnInit {
   }
 
   initForm() {
-    this.userForm = this.fromBuilder.group({
+    this.userForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       drinkPreference: ['', Validators.required],
-      hobbies: this.fromBuilder.array([]),
+      hobbies: this.formBuilder.array([]),
     });
   }
 
@@ -50,7 +50,7 @@ export class NewUserComponent implements OnInit {
   }
 
   onAddHobby() {
-    const newHobbyControl = this.fromBuilder.control('', Validators.required);
+    const newHobbyControl = this.formBuilder.control(null, Validators.required);
     this.getHobbies().push(newHobbyControl);
   }
 }
